@@ -1,0 +1,20 @@
+[project]
+name = "non_profit_mas"
+authors = [
+    { name = "Ahsan Shah", email = "iahsanshah11@gmail.com"}
+]
+description = "Non-Profit MAS is a custom ERPNext app designed to streamline nonprofit management. It helps organizations efficiently manage donations, grants, volunteers, events, and financial records while integrating seamlessly with ERPNext. The app provides tailored workflows for nonprofit operations, ensuring transparency, compliance, and efficient resource management."
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"
