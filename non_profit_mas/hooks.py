@@ -56,6 +56,10 @@ app_license = "mit"
 # Home Pages
 # ----------
 
+override_whitelisted_methods = {
+    "frappe.auth.get_logged_user": "non_profit_mas.custom_login.get_logged_user"
+}
+
 # application home page (will override Website Settings)
 # home_page = "login"
 

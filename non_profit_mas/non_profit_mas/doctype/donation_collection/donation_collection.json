@@ -11,7 +11,9 @@
   "column_break_wocd",
   "donor_type",
   "column_break_tivi",
-  "company"
+  "company",
+  "section_break_ceqa",
+  "accounts"
  ],
  "fields": [
   {
@@ -54,12 +56,21 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ceqa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "Table",
+   "options": "Donation CT"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-20 16:36:51.587662",
+ "modified": "2025-04-03 11:46:43.521795",
  "modified_by": "Administrator",
  "module": "Non Profit MAS",
  "name": "Donation Collection",
