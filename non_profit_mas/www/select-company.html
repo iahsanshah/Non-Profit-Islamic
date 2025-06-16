@@ -1,0 +1,61 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("Select Company") }}{% endblock %}
+
+{% block page_content %}
+<div class="container company-selection">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">{{ _("Select Your Organization") }}</h4>
+                </div>
+                <div class="card-body">
+                    <form id="company-selection-form">
+                        <div class="form-group">
+                            <label for="company">{{ _("Organization") }}</label>
+                            <select class="form-control" id="company" name="company" required>
+                                <option value="">{{ _("Select an organization") }}</option>
+                                {% for company in frappe.get_all("Company", 
+                                    fields=["name", "company_name"],
+                                    order_by="company_name") %}
+                                <option value="{{ company.name }}">{{ company.company_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            {{ _("Continue") }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+frappe.ready(function() {
+    $("#company-selection-form").submit(function(e) {
+        e.preventDefault();
+        let company = $(this).find("[name=company]").val();
+        
+        if (!company) {
+            frappe.msgprint(__("Please select an organization"));
+            return;
+        }
+        
+        frappe.call({
+            method: "non_profit_mas.utils.set_user_company",
+            args: {
+                company: company
+            },
+            callback: function(r) {
+                if (!r.exc) {
+                    window.location.href = "/desk";
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

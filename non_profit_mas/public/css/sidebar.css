@@ -1,0 +1,61 @@
+/* Main sidebar */
+.sidebar {
+  background-color:#00FF00;
+  width: 240px;
+  transition: all 0.3s;
+}
+
+/* Sidebar header */
+.sidebar-header {
+  padding: 20px;
+  background-color: #1a252f;
+  border-bottom: 1px solid #34495e;
+}
+
+/* Menu items */
+.sidebar-item {
+  margin: 5px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.sidebar-item a {
+  color: #ecf0f1;
+  padding: 10px 15px;
+}
+
+.sidebar-item:hover {
+  background-color: #34495e;
+}
+
+.sidebar-item.active {
+  background-color: #3498db;
+}
+
+/* Icons */
+.sidebar-icon {
+  color: #bdc3c7;
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-item.active .sidebar-icon {
+  color: white;
+}
+
+/********************
+  RESPONSIVE DESIGN
+*********************/
+
+@media (max-width: 768px) {
+ 
+  /* Sidebar */
+  .sidebar {
+    width: 70px;
+  }
+  
+  .sidebar-label {
+    display: none;
+  }
+}

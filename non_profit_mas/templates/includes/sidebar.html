@@ -1,0 +1,88 @@
+{% extends "templates/includes/web_sidebar.html" %}
+
+{% block sidebar_headers %}
+<!-- Custom Sidebar Header -->
+<div class="sidebar-header">
+  <img class="sidebar-logo" src="/assets/non_profit_mas/images/logo.png" alt="Logo">
+  <h4 class="sidebar-title">Non Profit MAS</h4>
+</div>
+{% endblock %}
+
+{% block sidebar_items %}
+<!-- Custom Sidebar Menu -->
+<ul class="sidebar-menu">
+  <!-- Main Menu Item -->
+  <li class="sidebar-item" data-route="Desk">
+    <a class="sidebar-link" href="/desk">
+      <i class="sidebar-icon fa fa-dashboard"></i>
+      <span class="sidebar-label">Dashboard</span>
+    </a>
+  </li>
+
+  <!-- Group with Submenu -->
+  <li class="sidebar-group">
+    <div class="sidebar-group-header">
+      <i class="sidebar-icon fa fa-users"></i>
+      <span class="sidebar-label">Contacts</span>
+      <i class="sidebar-caret fa fa-angle-down"></i>
+    </div>
+    <ul class="sidebar-submenu">
+      <li class="sidebar-item" data-route="List/Member">
+        <a class="sidebar-link" href="/app/member">
+          <span class="sidebar-label">Members</span>
+        </a>
+      </li>
+      <li class="sidebar-item" data-route="List/Donor">
+        <a class="sidebar-link" href="/app/donor">
+          <span class="sidebar-label">Donors</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Additional Custom Item -->
+  <li class="sidebar-item" data-route="Custom">
+    <a class="sidebar-link" href="/custom-page">
+      <i class="sidebar-icon fa fa-star"></i>
+      <span class="sidebar-label">Custom Page</span>
+      <span class="sidebar-badge">New</span>
+    </a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block sidebar_footers %}
+<!-- Custom Sidebar Footer -->
+<div class="sidebar-footer">
+  <div class="sidebar-user">
+    <img class="sidebar-user-image" src="{{ user_image }}" alt="User">
+    <div class="sidebar-user-info">
+      <div class="sidebar-user-name">{{ fullname }}</div>
+      <div class="sidebar-user-role">{{ user_type }}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+frappe.ready(() => {
+  // Initialize sidebar groups
+  $('.sidebar-group-header').click(function() {
+    $(this).parent().toggleClass('open');
+    $(this).find('.sidebar-caret').toggleClass('fa-angle-down fa-angle-up');
+  });
+
+  // Highlight current route
+  const current_route = frappe.router.current_route;
+  $(`.sidebar-item[data-route="${current_route}"]`).addClass('active');
+});
+</script>
+{% endblock %}
+
+{% block style %}
+<style>
+/* ===== Base Styles ===== */
+.sidebar {
+  background-color: #2c3e50;
+  color: #ecf0f

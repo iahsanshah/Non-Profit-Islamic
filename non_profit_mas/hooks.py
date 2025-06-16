@@ -5,6 +5,24 @@ app_description = "Non-Profit MAS is a custom ERPNext app designed to streamline
 app_email = "iahsanshah11@gmail.com"
 app_license = "mit"
 
+
+app_name = "non_profit_mas"
+app_title = "Non Profit MAS"
+
+# Website route for company selection
+website_route_rules = [
+    {
+        "from_route": "/select-company",
+        "to_route": "select-company",
+        "type": "page",
+        "template": "templates/pages/select_company.html"
+    }
+]
+
+app_include_js = "/assets/non_profit_mas/js/buying_dashboard_extension.js"
+
+# Post login hook - point to the correct module path
+on_login = "non_profit_mas.utils.login.on_login"
 # Apps
 # ------------------
 
@@ -56,9 +74,25 @@ app_license = "mit"
 # Home Pages
 # ----------
 
-override_whitelisted_methods = {
-    "frappe.auth.get_logged_user": "non_profit_mas.custom_login.get_logged_user"
+# override_whitelisted_methods = {
+#     "frappe.auth.get_logged_user": "non_profit_mas.custom_login.get_logged_user"
+# }
+app_include_css = [
+  "/assets/non_profit_mas/css/login.css"
+  "/assets/non_profit_mas/css/sidebar.css"
+  "/assets/non_profit_mas/js/sidebar.js"
+]
+
+
+
+doc_events = {
+    "Salary Slip": {
+        "before_save": "interio_floors.customize_hr.salary_slip.calculate_late_minutes"
+    }
 }
+
+
+
 
 # application home page (will override Website Settings)
 # home_page = "login"
