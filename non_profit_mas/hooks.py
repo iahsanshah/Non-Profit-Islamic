@@ -19,6 +19,11 @@ website_route_rules = [
     }
 ]
 
+# non_profit_mas/hooks.py
+app_include_js = "/assets/non_profit_mas/js/custom_pos.js"
+
+
+
 app_include_js = "/assets/non_profit_mas/js/buying_dashboard_extension.js"
 
 # Post login hook - point to the correct module path

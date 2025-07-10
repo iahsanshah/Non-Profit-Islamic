@@ -125,3 +125,23 @@ font-size:12px}
       padding-left: 0px;
 }
 }
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input.form-control {
+  padding-right: 36px; /* space for the icon */
+}
+
+.field-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  fill: #888;
+  pointer-events: none;
+}
+
