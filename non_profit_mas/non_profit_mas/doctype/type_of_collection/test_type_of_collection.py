@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDonorProfile(FrappeTestCase):
+class TestTypeOfCollection(FrappeTestCase):
 	pass

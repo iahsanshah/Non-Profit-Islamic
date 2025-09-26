@@ -13,7 +13,8 @@
   "column_break_tivi",
   "company",
   "section_break_ceqa",
-  "accounts"
+  "accounts",
+  "amended_from"
  ],
  "fields": [
   {
@@ -65,12 +66,23 @@
    "fieldname": "accounts",
    "fieldtype": "Table",
    "options": "Donation CT"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Donation Collection",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-04-03 11:46:43.521795",
+ "modified": "2025-09-27 02:34:24.399271",
  "modified_by": "Administrator",
  "module": "Non Profit MAS",
  "name": "Donation Collection",
